@@ -28,9 +28,9 @@ summary = {
 
 
 def send_email(exception):
-    sg = sendgrid.SendGridAPIClient(api_key='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')
-    from_email = Email("piogryko@gmail.com")
-    to_email = To("piogryko@gmail.com")
+    sg = sendgrid.SendGridAPIClient(api_key='YOUR-KEY')
+    from_email = Email("EMAIL-FROM")
+    to_email = To("EMAIL-TO")
     subject = "New trading error!"
     content = Content("text/plain", f"trading error {exception}")
     mail = Mail(from_email, to_email, subject, content)
@@ -98,7 +98,7 @@ def process_queue(event):
 def start_trading(driver_path):
     # collection.drop()
     api.launch(driver_path)
-    api.login("piogryko+tradiing@gmail.com", "glodnyiseta")
+    api.login("YOUR-TRADING212-LOGIN", "YOUR-TRADING212-PASSWORD")
     start = time.time()
     duration = 60 * 60 * 16
 
